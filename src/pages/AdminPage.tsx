@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Trash2, Edit3, Save, ArrowLeft, Music, MessageSquare, Ticket, RotateCcw, Check, X, Image, Heart, Download, Upload, Database } from 'lucide-react';
+import {
+  Plus, Trash2, Edit3, Save, ArrowLeft, Music, MessageSquare, Ticket, RotateCcw, Check, X, Image, Heart, Download, Upload, Database, CloudUpload, CloudLightning, Copy
+} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import type { StoreData, MessageResult, SongResult, CouponResult, CatResult, RandomImageResult } from '../types';
-import { loadStoreData, saveStoreData, resetStoreToDefaults, extractSpotifyTrackId } from '../hooks/useAdminData';
+import {
+  loadStoreData, saveStoreData, resetStoreToDefaults, extractSpotifyTrackId, fetchSupabaseData, syncStoreToSupabase, deleteSupabaseItem
+} from '../hooks/useAdminData';
+import { getStoredSupabaseConfig, saveStoredSupabaseConfig, SUPABASE_SQL_SCHEMA, getSupabase } from '../lib/supabase';
 
 const PASTEL_COLORS = ['#FFB3C6', '#E8D5FF', '#B8E4FF', '#FFE5A0', '#B8F0D0', '#FFD6B8', '#F0B8D4'];
 
@@ -14,6 +19,12 @@ const AdminPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('messages');
   const [store, setStore] = useState<StoreData>({ messages: [], songs: [], coupons: [], cats: [], randomImages: [] });
   const [savedNotice, setSavedNotice] = useState(false);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [showSqlModal, setShowSqlModal] = useState(false);
+
+  // Supabase state
+  const [sbConfig, setSbConfig] = useState(getStoredSupabaseConfig());
+  const [showSbConfig, setShowSbConfig] = useState(false);
 
   // Edit Modal states
   const [editingItem, setEditingItem] = useState<MessageResult | SongResult | CouponResult | CatResult | RandomImageResult | null>(null);
@@ -39,15 +50,60 @@ const AdminPage: React.FC = () => {
   const [newCouponValid, setNewCouponValid] = useState('');
   const [newCouponEmoji, setNewCouponEmoji] = useState('🎟️');
 
+  const loadData = async () => {
+    const local = loadStoreData();
+    setStore(local);
+
+    if (getSupabase()) {
+      setIsSyncing(true);
+      const remote = await fetchSupabaseData();
+      if (remote) {
+        setStore(remote);
+      }
+      setIsSyncing(false);
+    }
+  };
+
   useEffect(() => {
-    setStore(loadStoreData());
+    loadData();
   }, []);
 
-  const persist = (updated: StoreData) => {
+  const persist = async (updated: StoreData) => {
     setStore(updated);
     saveStoreData(updated);
     setSavedNotice(true);
     setTimeout(() => setSavedNotice(false), 2000);
+
+    // Sync to Supabase if connected
+    if (getSupabase()) {
+      setIsSyncing(true);
+      await syncStoreToSupabase(updated);
+      setIsSyncing(false);
+    }
+  };
+
+  const handleSaveSbConfig = async () => {
+    saveStoredSupabaseConfig(sbConfig);
+    setShowSbConfig(false);
+    await loadData();
+    alert('Konfigurasi Supabase berhasil disimpan! Mencoba sinkronisasi...');
+  };
+
+  const handlePushAllToSupabase = async () => {
+    if (!getSupabase()) {
+      alert('Silakan masukkan Supabase URL & Anon Key terlebih dahulu!');
+      setShowSbConfig(true);
+      return;
+    }
+    setIsSyncing(true);
+    const success = await syncStoreToSupabase(store);
+    setIsSyncing(false);
+    if (success) {
+      alert('Semua data (termasuk 44 kutipan, lagu, kupon, foto kucing & gambar) BERHASIL dikirim dan disinkronkan ke Supabase Cloud!');
+    } else {
+      alert('Gagal mengirim ke Supabase. Pastikan tabel di Supabase sudah dibuat menggunakan kode SQL schema!');
+      setShowSqlModal(true);
+    }
   };
 
   const handleReset = () => {
@@ -111,6 +167,7 @@ const AdminPage: React.FC = () => {
   };
 
   const deleteMessage = (id: string) => {
+    deleteSupabaseItem('messages', id);
     persist({ ...store, messages: store.messages.filter((m) => m.id !== id) });
   };
 
@@ -130,6 +187,7 @@ const AdminPage: React.FC = () => {
   };
 
   const deleteCat = (id: string) => {
+    deleteSupabaseItem('cats', id);
     persist({ ...store, cats: store.cats.filter((c) => c.id !== id) });
   };
 
@@ -149,6 +207,7 @@ const AdminPage: React.FC = () => {
   };
 
   const deleteRandomImage = (id: string) => {
+    deleteSupabaseItem('random_images', id);
     persist({ ...store, randomImages: store.randomImages.filter((r) => r.id !== id) });
   };
 
@@ -173,6 +232,7 @@ const AdminPage: React.FC = () => {
   };
 
   const deleteSong = (id: string) => {
+    deleteSupabaseItem('songs', id);
     persist({ ...store, songs: store.songs.filter((s) => s.id !== id) });
   };
 
@@ -196,6 +256,7 @@ const AdminPage: React.FC = () => {
   };
 
   const deleteCoupon = (id: string) => {
+    deleteSupabaseItem('coupons', id);
     persist({ ...store, coupons: store.coupons.filter((c) => c.id !== id) });
   };
 
@@ -246,8 +307,10 @@ const AdminPage: React.FC = () => {
               <ArrowLeft size={16} /> Ke Website Utama
             </button>
             <div>
-              <h1 className="font-pacifico text-lg text-pink-600">Admin Secret Gate 🔐</h1>
-              <p className="font-quicksand text-xs text-pink-400">Database & Master Control</p>
+              <h1 className="font-pacifico text-lg text-pink-600 flex items-center gap-1.5">
+                Admin Secret Gate 🔐
+              </h1>
+              <p className="font-quicksand text-xs text-pink-400">Database Real Cloud & Master Control</p>
             </div>
           </div>
 
@@ -276,7 +339,7 @@ const AdminPage: React.FC = () => {
 
       {/* Main Container */}
       <div className="max-w-3xl mx-auto px-4 pt-6">
-        {/* Saved Toast Notification */}
+        {/* Toast Notification */}
         <AnimatePresence>
           {savedNotice && (
             <motion.div
@@ -290,19 +353,100 @@ const AdminPage: React.FC = () => {
           )}
         </AnimatePresence>
 
-        {/* Database Status Banner */}
-        <div className="mb-6 p-4 rounded-2xl bg-white/80 border border-pink-200 shadow-sm flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-pink-100 flex items-center justify-center text-pink-600">
-              <Database size={20} />
+        {/* ⚡ SUPABASE REAL CLOUD DATABASE PANEL ⚡ */}
+        <div className="mb-6 p-5 rounded-3xl bg-white/95 border-2 border-emerald-300 shadow-md">
+          <div className="flex items-center justify-between flex-wrap gap-3 mb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 shadow-inner">
+                <CloudLightning size={24} />
+              </div>
+              <div>
+                <h3 className="font-nunito font-900 text-base text-emerald-950 flex items-center gap-2">
+                  <span>Supabase Real Cloud Database</span>
+                  {getSupabase() ? (
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-bold border border-emerald-300">
+                      ● TERHUBUNG
+                    </span>
+                  ) : (
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 font-bold border border-amber-300">
+                      ○ BELUM TERHUBUNG (Local Cache Active)
+                    </span>
+                  )}
+                </h3>
+                <p className="font-quicksand text-xs text-emerald-800 opacity-90">
+                  {getSupabase()
+                    ? 'Setiap perubahan data otomatis tersinkron ke Supabase Cloud (akses global dari HP/Vercel)!'
+                    : 'Masukkan Supabase URL & Anon Key agar data otomatis tersinkron online di semua HP/Laptop secara global.'}
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="font-nunito font-bold text-sm text-pink-950">Database Status: AKTIF (Deploy-Ready ✅)</p>
-              <p className="font-quicksand text-xs text-pink-700 opacity-80">
-                Data tersimpan otomatis di browser database local storage & siap untuk di-deploy ke Vercel / Netlify / Cloudflare.
-              </p>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setShowSbConfig(!showSbConfig)}
+                className="px-3.5 py-2 rounded-xl font-nunito font-bold text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-300 transition-all"
+              >
+                {showSbConfig ? 'Tutup Pengaturan' : '⚙️ Setting Supabase Keys'}
+              </button>
+              <button
+                onClick={handlePushAllToSupabase}
+                disabled={isSyncing}
+                className="px-4 py-2 rounded-xl font-nunito font-bold text-xs bg-emerald-600 hover:bg-emerald-700 text-white shadow-md transition-all flex items-center gap-1.5 disabled:opacity-50"
+              >
+                <CloudUpload size={15} />
+                {isSyncing ? 'Menyinkronkan...' : 'Upload Semua Data ke Supabase'}
+              </button>
             </div>
           </div>
+
+          {/* Supabase Key Input Form */}
+          {showSbConfig && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="mt-4 pt-4 border-t border-emerald-200 space-y-3"
+            >
+              <div>
+                <label className="text-xs font-nunito font-bold text-emerald-900 block mb-1">
+                  1. Supabase Project URL:
+                </label>
+                <input
+                  type="text"
+                  value={sbConfig.url}
+                  onChange={(e) => setSbConfig({ ...sbConfig, url: e.target.value })}
+                  placeholder="https://xyzxyz.supabase.co"
+                  className="w-full p-2.5 rounded-xl border border-emerald-300 font-quicksand text-xs focus:outline-emerald-500 bg-emerald-50/50"
+                />
+              </div>
+              <div>
+                <label className="text-xs font-nunito font-bold text-emerald-900 block mb-1">
+                  2. Supabase Anon API Key:
+                </label>
+                <input
+                  type="password"
+                  value={sbConfig.anonKey}
+                  onChange={(e) => setSbConfig({ ...sbConfig, anonKey: e.target.value })}
+                  placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                  className="w-full p-2.5 rounded-xl border border-emerald-300 font-quicksand text-xs focus:outline-emerald-500 bg-emerald-50/50"
+                />
+              </div>
+              <div className="flex items-center justify-between pt-1">
+                <button
+                  onClick={() => setShowSqlModal(true)}
+                  className="text-xs font-nunito font-bold text-emerald-700 underline hover:text-emerald-900 flex items-center gap-1"
+                >
+                  <Copy size={13} /> Lihat Kode SQL Schema Supabase
+                </button>
+                <button
+                  onClick={handleSaveSbConfig}
+                  className="px-5 py-2 rounded-xl font-nunito font-bold text-xs bg-emerald-600 hover:bg-emerald-700 text-white shadow-md transition-all"
+                >
+                  Simpan & Hubungkan Supabase
+                </button>
+              </div>
+            </motion.div>
+          )}
         </div>
 
         {/* Tab Navigation */}
@@ -894,6 +1038,45 @@ const AdminPage: React.FC = () => {
                 className="px-4 py-2 rounded-xl text-white bg-pink-500 hover:bg-pink-600 font-nunito font-bold text-xs flex items-center gap-1 shadow-md"
               >
                 <Save size={14} /> Simpan Perubahan
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── SQL SCHEMA MODAL ── */}
+      {showSqlModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl p-6 w-full max-w-xl shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b pb-3">
+              <h3 className="font-nunito font-bold text-lg text-emerald-950 flex items-center gap-2">
+                <Database size={18} /> Kode SQL Schema Supabase (Run di SQL Editor)
+              </h3>
+              <button onClick={() => setShowSqlModal(false)} className="p-1 rounded-full text-gray-400 hover:bg-gray-100">
+                <X size={18} />
+              </button>
+            </div>
+            <p className="font-quicksand text-xs text-gray-600">
+              Salin kode SQL di bawah ini dan tempelkan ke **Supabase Console → SQL Editor → Run**. Ini akan membuat 5 tabel (`messages`, `songs`, `coupons`, `cats`, `random_images`) beserta izin akses public read/write.
+            </p>
+            <pre className="p-3 bg-gray-900 text-emerald-400 font-mono text-[11px] rounded-2xl overflow-x-auto select-all max-h-60">
+              {SUPABASE_SQL_SCHEMA}
+            </pre>
+            <div className="flex justify-between items-center pt-2">
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(SUPABASE_SQL_SCHEMA);
+                  alert('Kode SQL Schema berhasil disalin ke clipboard!');
+                }}
+                className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-nunito font-bold text-xs flex items-center gap-1 shadow-md"
+              >
+                <Copy size={14} /> Salin Kode SQL
+              </button>
+              <button
+                onClick={() => setShowSqlModal(false)}
+                className="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-nunito font-bold text-xs"
+              >
+                Tutup
               </button>
             </div>
           </div>
