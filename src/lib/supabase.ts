@@ -19,7 +19,7 @@ export function getStoredSupabaseConfig(): SupabaseConfig {
   }
 
   // Default user Supabase Cloud project credentials
-  const defaultUrl = 'https://iegtazzxupzhnlbyltbv.supabase.co';
+  const defaultUrl = 'https://iegtazzxupzhnlbyitbv.supabase.co';
   const defaultKey = 'sb_publishable_Ew2qgJQB3iuyMjr-G6Ot9Q_D_-kxAeV';
 
   return {
