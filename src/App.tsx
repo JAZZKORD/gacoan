@@ -1,9 +1,10 @@
-import { useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { GachaResult, GachaCategory } from './types';
 import { rollGacha } from './hooks/useGacha';
 import { useCollection } from './hooks/useCollection';
+import { refreshStoreData } from './hooks/useAdminData';
 import GashaponMachine from './components/GashaponMachine';
 import ResultModal from './components/ResultModal';
 import Collection from './components/Collection';
@@ -29,6 +30,10 @@ function MainPage() {
   const [isSaved, setIsSaved] = useState(false);
   const recentCategories = useRef<GachaCategory[]>([]);
   const { collection, history, addToCollection } = useCollection();
+
+  useEffect(() => {
+    refreshStoreData().catch(() => {});
+  }, []);
 
   const handleSpin = useCallback(async () => {
     if (isSpinning) return;
