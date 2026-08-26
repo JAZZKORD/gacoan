@@ -18,10 +18,13 @@ export function getStoredSupabaseConfig(): SupabaseConfig {
     // fallback
   }
 
-  // Fallback to environment variables or default placeholder
+  // Default user Supabase Cloud project credentials
+  const defaultUrl = 'https://iegtazzxupzhnlbyltbv.supabase.co';
+  const defaultKey = 'sb_publishable_Ew2qgJQB3iuyMjr-G6Ot9Q_D_-kxAeV';
+
   return {
-    url: (import.meta.env.VITE_SUPABASE_URL as string) || '',
-    anonKey: (import.meta.env.VITE_SUPABASE_ANON_KEY as string) || '',
+    url: (import.meta.env.VITE_SUPABASE_URL as string) || defaultUrl,
+    anonKey: (import.meta.env.VITE_SUPABASE_ANON_KEY as string) || defaultKey,
   };
 }
 
