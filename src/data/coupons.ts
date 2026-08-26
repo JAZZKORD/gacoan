@@ -10,7 +10,7 @@ export const defaultCoupons: CouponResult[] = [
     color: '#E84B7E',
     bgColor: '#FFD6E0',
     validText: 'Berlaku kapan aja kamu mau, tanpa batas waktu',
-    code: 'DINNER-001',
+    code: 'DINNER-001'
   },
   {
     type: 'coupon',
@@ -21,18 +21,18 @@ export const defaultCoupons: CouponResult[] = [
     color: '#9A56F5',
     bgColor: '#E8D5FF',
     validText: 'Kapan aja kamu butuh kabur dari rutinitas',
-    code: 'JALAN-002',
+    code: 'JALAN-002'
   },
   {
     type: 'coupon',
     id: 'coupon-3',
     title: 'NONTON FILM GRATIS',
-    description: '1x Nonton film seru bareng, popcorn ditanggung ♡',
+    description: '1x Nonton film seru bareng, apa ajaaaa bebass ♡',
     emoji: '🎬',
     color: '#E84B7E',
     bgColor: '#FFD6E0',
-    validText: 'Film apa aja yang kamu mau, aku nggak bakal komplain',
-    code: 'MOVIE-003',
+    validText: 'Film apa aja yang kamu mau, aku nggak bakal komplain,..... APALAGI HORORRRR',
+    code: 'MOVIE-003'
   },
   {
     type: 'coupon',
@@ -43,7 +43,7 @@ export const defaultCoupons: CouponResult[] = [
     color: '#C77DFF',
     bgColor: '#E8D5FF',
     validText: 'Aturanmu, rencanamu, aku tinggal dateng',
-    code: 'CHOICE-004',
+    code: 'CHOICE-004'
   },
   {
     type: 'coupon',
@@ -53,8 +53,8 @@ export const defaultCoupons: CouponResult[] = [
     emoji: '🍜',
     color: '#FF7B54',
     bgColor: '#FFE5D0',
-    validText: 'Menu pilihan kamu, semuanya aku yang bayar',
-    code: 'MAKAN-005',
+    validText: 'Menu pilihan kamu, semuanya aku yang bayar, asall liatt tanggal duluu 😭🙏',
+    code: 'MAKAN-005'
   },
   {
     type: 'coupon',
@@ -64,8 +64,8 @@ export const defaultCoupons: CouponResult[] = [
     emoji: '☕',
     color: '#9A56F5',
     bgColor: '#E8D5FF',
-    validText: 'Mau lama-lama juga oke, hari itu aku sepenuhnya milikmu',
-    code: 'CAFE-006',
+    validText: 'Mau lama-lama juga oke, mau nginep di cafenya juga gas',
+    code: 'CAFE-006'
   },
   {
     type: 'coupon',
@@ -76,7 +76,7 @@ export const defaultCoupons: CouponResult[] = [
     color: '#E84B7E',
     bgColor: '#FFD6E0',
     validText: 'Percaya aku, pasti worth it kok',
-    code: 'SURPRISE-007',
+    code: 'SURPRISE-007'
   },
   {
     type: 'coupon',
@@ -87,7 +87,7 @@ export const defaultCoupons: CouponResult[] = [
     color: '#43AA8B',
     bgColor: '#D4F5EC',
     validText: 'Cuaca dijamin bagus (kata aku, bukan BMKG)',
-    code: 'PIKNIK-008',
+    code: 'PIKNIK-008'
   },
   {
     type: 'coupon',
@@ -97,8 +97,8 @@ export const defaultCoupons: CouponResult[] = [
     emoji: '🏠',
     color: '#C77DFF',
     bgColor: '#E8D5FF',
-    validText: 'Cuma kita, camilan, dan waktu berkualitas',
-    code: 'STAY-009',
+    validText: 'eh apaya ini gatauuuuu ih maluu, klo dapet iniii jangan bilang bilangg jesssssss ',
+    code: 'STAY-009'
   },
   {
     type: 'coupon',
@@ -108,7 +108,18 @@ export const defaultCoupons: CouponResult[] = [
     emoji: '🤗',
     color: '#E84B7E',
     bgColor: '#FFD6E0',
-    validText: 'Nggak ada batasnya. Serius. Dateng aja langsung.',
-    code: 'PELUK-010',
+    validText: 'AKW MO PELUKK KM SMPE REMUKKK 😌✨',
+    code: 'PELUK-010'
   },
+  {
+    type: 'coupon',
+    id: '1787744318538-quwyye8pq',
+    title: 'MAKAN BARENG GRATIS',
+    description: '1x Makan siang atau makan malam bareng aku ♡',
+    emoji: '🍜',
+    color: '#FF7B54',
+    bgColor: '#FFE5D0',
+    validText: 'Menu pilihan kamu, semuanya aku yang bayar',
+    code: 'MAKAN-005'
+  }
 ];

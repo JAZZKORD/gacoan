@@ -12,7 +12,7 @@ export const defaultSongs: SongResult[] = [
     duration: 354,
     spotifyUrl: 'https://open.spotify.com/track/6t8DAfdaN4NVFWbHdaXbdq',
     spotifyTrackId: '6t8DAfdaN4NVFWbHdaXbdq',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3',
+    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3'
   },
   {
     type: 'song',
@@ -25,7 +25,7 @@ export const defaultSongs: SongResult[] = [
     duration: 152,
     spotifyUrl: 'https://open.spotify.com/track/6OCx69e8n7J1xkKjQXKAY4',
     spotifyTrackId: '6OCx69e8n7J1xkKjQXKAY4',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=sweet-love-10334.mp3',
+    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=sweet-love-10334.mp3'
   },
   {
     type: 'song',
@@ -38,7 +38,7 @@ export const defaultSongs: SongResult[] = [
     duration: 221,
     spotifyUrl: 'https://open.spotify.com/track/1dGr1c8CrMLDpV6mPbImSI',
     spotifyTrackId: '1dGr1c8CrMLDpV6mPbImSI',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=romantic-piano-14707.mp3',
+    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=romantic-piano-14707.mp3'
   },
   {
     type: 'song',
@@ -51,7 +51,7 @@ export const defaultSongs: SongResult[] = [
     duration: 215,
     spotifyUrl: 'https://open.spotify.com/track/4KWu8P4V9GfGNMqGPkv0Og',
     spotifyTrackId: '4KWu8P4V9GfGNMqGPkv0Og',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/10/14/audio_9939f37f37.mp3?filename=soft-romantic-lofi-1234.mp3',
+    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/10/14/audio_9939f37f37.mp3?filename=soft-romantic-lofi-1234.mp3'
   },
   {
     type: 'song',
@@ -64,7 +64,7 @@ export const defaultSongs: SongResult[] = [
     duration: 251,
     spotifyUrl: 'https://open.spotify.com/track/2plbrEY59IikOBgBGLjaoe',
     spotifyTrackId: '2plbrEY59IikOBgBGLjaoe',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/05/16/audio_db6591201e.mp3?filename=sweet-romantic-melody-111158.mp3',
+    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/05/16/audio_db6591201e.mp3?filename=sweet-romantic-melody-111158.mp3'
   },
   {
     type: 'song',
@@ -77,7 +77,7 @@ export const defaultSongs: SongResult[] = [
     duration: 263,
     spotifyUrl: 'https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v',
     spotifyTrackId: '0tgVpDi06FyKpA1z0VMD4v',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2021/08/09/audio_884379965b.mp3?filename=romantic-acoustic-guitar-7840.mp3',
+    audioUrl: 'https://cdn.pixabay.com/download/audio/2021/08/09/audio_884379965b.mp3?filename=romantic-acoustic-guitar-7840.mp3'
   },
   {
     type: 'song',
@@ -90,7 +90,7 @@ export const defaultSongs: SongResult[] = [
     duration: 269,
     spotifyUrl: 'https://open.spotify.com/track/3AJwUDP919kvQ9QcozQPxg',
     spotifyTrackId: '3AJwUDP919kvQ9QcozQPxg',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/02/07/audio_b2f90a5665.mp3?filename=warm-memories-lofi-1845.mp3',
+    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/02/07/audio_b2f90a5665.mp3?filename=warm-memories-lofi-1845.mp3'
   },
   {
     type: 'song',
@@ -103,6 +103,342 @@ export const defaultSongs: SongResult[] = [
     duration: 203,
     spotifyUrl: 'https://open.spotify.com/track/1E2bVWrL9SllSGloFBHzWG',
     spotifyTrackId: '1E2bVWrL9SllSGloFBHzWG',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/03/24/audio_321b1990c8.mp3?filename=gentle-piano-lofi-10892.mp3',
+    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/03/24/audio_321b1990c8.mp3?filename=gentle-piano-lofi-10892.mp3'
   },
+  {
+    type: 'song',
+    id: 'song-1787748178620',
+    title: 'Still Into U',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '✨',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/1yjY7rpaAQvKwpdUliHx0d?si=c82bfc556ff847d4',
+    spotifyTrackId: '1yjY7rpaAQvKwpdUliHx0d'
+  },
+  {
+    type: 'song',
+    id: 'song-1787748159459',
+    title: 'I love U soo',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '💖',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/4SqWKzw0CbA05TGszDgMlc?si=8e08e5d3a0fd4fd3',
+    spotifyTrackId: '4SqWKzw0CbA05TGszDgMlc'
+  },
+  {
+    type: 'song',
+    id: 'song-1787748145647',
+    title: 'New Kind Of love',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '💖',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/3fuyYaLhZ2RoP9eWpvfP1H?si=b64c9f3283904360',
+    spotifyTrackId: '3fuyYaLhZ2RoP9eWpvfP1H'
+  },
+  {
+    type: 'song',
+    id: 'song-1787748125356',
+    title: 'Tek it',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🌸',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/0MnTkIEP4zZN1IUSu8MvIz?si=293537d9b6ae4945',
+    spotifyTrackId: '0MnTkIEP4zZN1IUSu8MvIz'
+  },
+  {
+    type: 'song',
+    id: 'song-1787748114045',
+    title: 'Diam Tanpa Kata',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🌸',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/4WGurtyQy6WfJ04wmM0VkH?si=ca74718f0ef941ca',
+    spotifyTrackId: '4WGurtyQy6WfJ04wmM0VkH'
+  },
+  {
+    type: 'song',
+    id: 'song-1787748101221',
+    title: 'Bad Habits',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '✨',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/4k6Uh1HXdhtusDW5y8Gbvy?si=b6f8c03e8ad54b30',
+    spotifyTrackId: '4k6Uh1HXdhtusDW5y8Gbvy'
+  },
+  {
+    type: 'song',
+    id: 'song-1787748054446',
+    title: 'Untuk Perempuan Yang sedang di pelukan',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '💖',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/0urpBLpcm6DOGzs86rcKd8?si=41bfd28ec95142ef',
+    spotifyTrackId: '0urpBLpcm6DOGzs86rcKd8'
+  },
+  {
+    type: 'song',
+    id: 'song-1787748023315',
+    title: 'Engga dulu',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '✨',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/3c3JC5TjFrEqEKheU7227c?si=afb665036b1d441c',
+    spotifyTrackId: '3c3JC5TjFrEqEKheU7227c'
+  },
+  {
+    type: 'song',
+    id: 'song-1787748006003',
+    title: 'MMG (My Mine Gw)',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🌸',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/2AtJq58CHh4qBUqTpU75vU?si=fb533c53f9934d85',
+    spotifyTrackId: '2AtJq58CHh4qBUqTpU75vU'
+  },
+  {
+    type: 'song',
+    id: 'song-1787747986647',
+    title: 'Astaga Bercanda',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🌙',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/03fkIoNyruY4N2Pa5CqTvv?si=6b4bcd15a3304b49',
+    spotifyTrackId: '03fkIoNyruY4N2Pa5CqTvv'
+  },
+  {
+    type: 'song',
+    id: 'song-1787747974665',
+    title: 'Garam dan madu',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🌙',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/1hlHeIZ36Idpr57xPI8OCD?si=7738c4743a544fc8',
+    spotifyTrackId: '1hlHeIZ36Idpr57xPI8OCD'
+  },
+  {
+    type: 'song',
+    id: 'song-1787747954321',
+    title: 'bool 5',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '✨',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/5V6tZL7SbLNoGbCe4c4ydR?si=8a3f8914ace34f0c',
+    spotifyTrackId: '5V6tZL7SbLNoGbCe4c4ydR'
+  },
+  {
+    type: 'song',
+    id: 'song-1787747925254',
+    title: 'hate that i made you love me',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '✨',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/20jbSiX29FDX4oQxBXyUEi?si=918d0201f2544618',
+    spotifyTrackId: '20jbSiX29FDX4oQxBXyUEi'
+  },
+  {
+    type: 'song',
+    id: 'song-1787747877067',
+    title: 'blinding light',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '💖',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b?si=b56d2a0e07a04196',
+    spotifyTrackId: '0VjIjW4GlUZAMYd2vXMi3b'
+  },
+  {
+    type: 'song',
+    id: 'song-1787747837178',
+    title: 'Gravis',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '💖',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/2vS5uehIpOBiMq5Ctijxp6?si=47154c50505f4606',
+    spotifyTrackId: '2vS5uehIpOBiMq5Ctijxp6'
+  },
+  {
+    type: 'song',
+    id: 'song-1787747826714',
+    title: 'Surabaya',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '💖',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/2g7n0uQwR9vJGRLNTCSNbU?si=25656fac11b243a6',
+    spotifyTrackId: '2g7n0uQwR9vJGRLNTCSNbU'
+  },
+  {
+    type: 'song',
+    id: 'song-1787746132915',
+    title: 'Car outside',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🌙',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/0otRX6Z89qKkHkQ9OqJpKt?si=2525616636644e23',
+    spotifyTrackId: '0otRX6Z89qKkHkQ9OqJpKt'
+  },
+  {
+    type: 'song',
+    id: 'song-1787746015056',
+    title: 'Consume',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '💖',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/0X2bh8NVQ8svDQIn2AdCbW?si=e2d2835a2cc74be6',
+    spotifyTrackId: '0X2bh8NVQ8svDQIn2AdCbW'
+  },
+  {
+    type: 'song',
+    id: 'song-1787745988057',
+    title: 'Earrings',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🌸',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/0eAuGrXyGFYwur9ARUe7LJ?si=6da8c6f2d1084c84',
+    spotifyTrackId: '0eAuGrXyGFYwur9ARUe7LJ'
+  },
+  {
+    type: 'song',
+    id: 'song-1787745917710',
+    title: 'she isn\'t she lovely',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🌸',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/3NlLmKBJozwoi0k03Feb1N?si=adad40255b5a4a0d',
+    spotifyTrackId: '3NlLmKBJozwoi0k03Feb1N'
+  },
+  {
+    type: 'song',
+    id: 'song-1787745546636',
+    title: 'C.R.I.S.H.Y.E',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '⭐',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/42si4ikg5dh732gPuQ0xHb?si=a415ef0da8564ae8',
+    spotifyTrackId: '42si4ikg5dh732gPuQ0xHb'
+  },
+  {
+    type: 'song',
+    id: 'song-1787744501264',
+    title: 'Sweet Boy',
+    artist: 'Malcolm Tod',
+    album: 'Malcolm Tod',
+    coverEmoji: '🌙',
+    coverColor: '#FFB3C6',
+    duration: 200,
+    spotifyUrl: 'https://open.spotify.com/track/59c2xv2kMzYM6HR9oY6BIa?si=9518ad7cf1cc49f3',
+    spotifyTrackId: '59c2xv2kMzYM6HR9oY6BIa'
+  },
+  {
+    type: 'song',
+    id: 'song-1787743461004',
+    title: 'Join me in Death',
+    artist: 'HIM',
+    album: 'HIM',
+    coverEmoji: '🎵',
+    coverColor: '#FFB3C6',
+    duration: 200,
+    spotifyUrl: 'https://open.spotify.com/track/2Y6k2RbPc83mh3C7mgIB37?si=dafe56a1896b43f0',
+    spotifyTrackId: '2Y6k2RbPc83mh3C7mgIB37'
+  },
+  {
+    type: 'song',
+    id: 'song-1787746830041',
+    title: 'suara knalpot',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '⭐',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/3xJx4yRNa3UcUjroxTgPgg?si=db29642878f34894',
+    spotifyTrackId: '3xJx4yRNa3UcUjroxTgPgg'
+  },
+  {
+    type: 'song',
+    id: 'song-1787746776705',
+    title: 'Isn\'t She Lovely',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '⭐',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/3NlLmKBJozwoi0k03Feb1N?si=de9bc47644b04a51',
+    spotifyTrackId: '3NlLmKBJozwoi0k03Feb1N'
+  },
+  {
+    type: 'song',
+    id: 'song-1787746753521',
+    title: 'Somewhere Only We Know',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🎵',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/1SKPmfSYaPsETbRHaiA18G?si=48ae87547ed74902',
+    spotifyTrackId: '1SKPmfSYaPsETbRHaiA18G'
+  },
+  {
+    type: 'song',
+    id: 'song-1787746703067',
+    title: 'Somebody\'s Pleasure',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🎵',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/3e1rs346dsDDwpqTRGlRZR?si=1f270d95cf3d461c',
+    spotifyTrackId: '3e1rs346dsDDwpqTRGlRZR'
+  },
+  {
+    type: 'song',
+    id: 'song-1787746531883',
+    title: 'car outside',
+    artist: 'Spotify',
+    album: 'Spotify',
+    coverEmoji: '🎵',
+    coverColor: '#E8D5FF',
+    duration: 180,
+    spotifyUrl: 'https://open.spotify.com/track/0otRX6Z89qKkHkQ9OqJpKt?si=b21805a9a37c4c49',
+    spotifyTrackId: '0otRX6Z89qKkHkQ9OqJpKt'
+  }
 ];
