@@ -122,18 +122,28 @@ ALTER TABLE coupons ENABLE ROW LEVEL SECURITY;
 ALTER TABLE cats ENABLE ROW LEVEL SECURITY;
 ALTER TABLE random_images ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Public Read Access" ON messages;
+DROP POLICY IF EXISTS "Public Write Access" ON messages;
 CREATE POLICY "Public Read Access" ON messages FOR SELECT USING (true);
 CREATE POLICY "Public Write Access" ON messages FOR ALL USING (true);
 
+DROP POLICY IF EXISTS "Public Read Access" ON songs;
+DROP POLICY IF EXISTS "Public Write Access" ON songs;
 CREATE POLICY "Public Read Access" ON songs FOR SELECT USING (true);
 CREATE POLICY "Public Write Access" ON songs FOR ALL USING (true);
 
+DROP POLICY IF EXISTS "Public Read Access" ON coupons;
+DROP POLICY IF EXISTS "Public Write Access" ON coupons;
 CREATE POLICY "Public Read Access" ON coupons FOR SELECT USING (true);
 CREATE POLICY "Public Write Access" ON coupons FOR ALL USING (true);
 
+DROP POLICY IF EXISTS "Public Read Access" ON cats;
+DROP POLICY IF EXISTS "Public Write Access" ON cats;
 CREATE POLICY "Public Read Access" ON cats FOR SELECT USING (true);
 CREATE POLICY "Public Write Access" ON cats FOR ALL USING (true);
 
+DROP POLICY IF EXISTS "Public Read Access" ON random_images;
+DROP POLICY IF EXISTS "Public Write Access" ON random_images;
 CREATE POLICY "Public Read Access" ON random_images FOR SELECT USING (true);
 CREATE POLICY "Public Write Access" ON random_images FOR ALL USING (true);
 `;
